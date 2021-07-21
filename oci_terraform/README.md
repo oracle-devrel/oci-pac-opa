@@ -151,6 +151,6 @@ This parameter uses the same format as used for `allowed_ingress_rules` - please
 
 Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved.
 
-Licensed under the Universal Permissive License 1.0 or Apache License 2.0.
+Licensed under the Universal Permissive License 1.0.
 
 See [LICENSE](LICENSE) for more details.
