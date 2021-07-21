@@ -148,9 +148,8 @@ A list of maps which define the permitted egress (outbound) traffic flows.  Thes
 This parameter uses the same format as used for `allowed_ingress_rules` - please refer to it for information on the fields.
 
 ## License
+Copyright (c) 2021 Oracle and/or its affiliates.
 
-Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved.
+Licensed under the Universal Permissive License (UPL), Version 1.0.
 
-Licensed under the Universal Permissive License 1.0.
-
-See [LICENSE](LICENSE) for more details.
+See [LICENSE](../LICENSE) for more details.
