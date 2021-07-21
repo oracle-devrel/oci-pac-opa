@@ -64,9 +64,8 @@ These sample variables result in passing validation of the `tfplan.json` file.
 This is a sample, sanitized TF plan output that can be used to try out the example scenario (along with `oci_vars-pass.rego` and `oci_vars-fail.rego`, depending if you'd like to see a passed or failed validation).  This isn't useful beyond just allowing you to quickly see this solution at work, as it's been modified (sanitized).
 
 ## License
+Copyright (c) 2021 Oracle and/or its affiliates.
 
-Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved.
+Licensed under the Universal Permissive License (UPL), Version 1.0.
 
-Licensed under the Universal Permissive License 1.0.
-
-See [LICENSE](LICENSE) for more details.
+See [LICENSE](../../LICENSE) for more details.
