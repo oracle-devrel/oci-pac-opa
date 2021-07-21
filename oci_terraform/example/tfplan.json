@@ -1,0 +1,2239 @@
+{
+  "format_version": "0.1",
+  "terraform_version": "0.12.8",
+  "variables": {
+    "compartment_id": {
+      "value": "ocid1.compartment.oc1..abc123"
+    },
+    "fingerprint": {
+      "value": "00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff"
+    },
+    "igw_id": {
+      "value": "ocid1.internetgateway.oc1.phx.abc123"
+    },
+    "lpg_id": {
+      "value": "ocid1.localpeeringgateway.oc1.phx.abc123"
+    },
+    "natgw_id": {
+      "value": "ocid1.natgateway.oc1.phx.abc123"
+    },
+    "private_key_path": {
+      "value": "/somewhere/somekey.pem"
+    },
+    "root_compartment_ocid": {
+      "value": "ocid1.tenancy.oc1..abc123"
+    },
+    "ssh_public_key": {
+      "value": "$(cat /somewhere/somekey.pub)"
+    },
+    "svcgw_id": {
+      "value": "ocid1.servicegateway.oc1.phx.abc123"
+    },
+    "tenancy_ocid": {
+      "value": "ocid1.tenancy.oc1..abc123"
+    },
+    "user_ocid": {
+      "value": "ocid1.user.oc1..abc123"
+    },
+    "vcn_id": {
+      "value": "ocid1.vcn.oc1.phx.abc123"
+    }
+  },
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "oci_core_dhcp_options.test_dhcp",
+          "mode": "managed",
+          "type": "oci_core_dhcp_options",
+          "name": "test_dhcp",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "test_dhcp",
+            "options": [
+              {
+                "custom_dns_servers": [],
+                "server_type": "VcnLocalPlusInternet",
+                "type": "DomainNameServer"
+              },
+              {
+                "custom_dns_servers": [],
+                "search_domain_names": [
+                  "test.oraclecloud.local"
+                ],
+                "type": "SearchDomain"
+              }
+            ],
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_instance.Test123",
+          "mode": "managed",
+          "type": "oci_core_instance",
+          "name": "Test123",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "availability_domain": "1234:US-ASHBURN-AD-1",
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "create_vnic_details": [
+              {
+                "assign_public_ip": "false",
+                "nsg_ids": null,
+                "skip_source_dest_check": false
+              }
+            ],
+            "display_name": "Test123",
+            "extended_metadata": null,
+            "hostname_label": "test123",
+            "metadata": {
+              "ssh_authorized_keys": "ssh-rsa abc123"
+            },
+            "preserve_boot_volume": null,
+            "shape": "VM.Standard1.1",
+            "source_details": [
+              {
+                "source_id": "ocid1.image.oc1.eu-frankfurt-1.abc123",
+                "source_type": "image"
+              }
+            ],
+            "timeouts": null
+          }
+        },
+        {
+          "address": "oci_core_instance.WebServer1",
+          "mode": "managed",
+          "type": "oci_core_instance",
+          "name": "WebServer1",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "availability_domain": "1234:US-ASHBURN-AD-2",
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "create_vnic_details": [
+              {
+                "assign_public_ip": "true",
+                "nsg_ids": null,
+                "skip_source_dest_check": false
+              }
+            ],
+            "display_name": "WebServer1",
+            "extended_metadata": null,
+            "hostname_label": "webserver1",
+            "metadata": {
+              "ssh_authorized_keys": "ssh-rsa abc123"
+            },
+            "preserve_boot_volume": null,
+            "shape": "VM.Standard1.1",
+            "source_details": [
+              {
+                "source_id": "ocid1.image.oc1.eu-frankfurt-1.abc123",
+                "source_type": "image"
+              }
+            ],
+            "timeouts": null
+          }
+        },
+        {
+          "address": "oci_core_route_table.Test_Route_1",
+          "mode": "managed",
+          "type": "oci_core_route_table",
+          "name": "Test_Route_1",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "Test_Route_1",
+            "route_rules": [
+              {
+                "destination": "0.0.0.0/0",
+                "destination_type": "CIDR_BLOCK",
+                "network_entity_id": "ocid1.servicegateway.oc1.phx.abc123"
+              },
+              {
+                "destination": "1.1.1.0/24",
+                "destination_type": "CIDR_BLOCK",
+                "network_entity_id": "ocid1.servicegateway.oc1.phx.abc123"
+              },
+              {
+                "destination": "10.1.1.0/24",
+                "destination_type": "CIDR_BLOCK",
+                "network_entity_id": "ocid1.natgateway.oc1.phx.abc123"
+              },
+              {
+                "destination": "192.168.0.0/16",
+                "destination_type": "CIDR_BLOCK",
+                "network_entity_id": "ocid1.natgateway.oc1.phx.abc123"
+              }
+            ],
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_security_list.test_acl",
+          "mode": "managed",
+          "type": "oci_core_security_list",
+          "name": "test_acl",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "test_acl",
+            "egress_security_rules": [
+              {
+                "destination": "10.0.0.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "17",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": []
+              },
+              {
+                "destination": "10.0.1.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "17",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": [
+                  {
+                    "max": 123,
+                    "min": 123,
+                    "source_port_range": []
+                  }
+                ]
+              },
+              {
+                "destination": "10.0.2.1/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "17",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": [
+                  {
+                    "max": null,
+                    "min": null,
+                    "source_port_range": [
+                      {
+                        "max": 123,
+                        "min": 123
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "destination": "10.0.3.1/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "17",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": [
+                  {
+                    "max": 123,
+                    "min": 123,
+                    "source_port_range": [
+                      {
+                        "max": 123,
+                        "min": 123
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "destination": "10.0.4.1/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "17",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": []
+              },
+              {
+                "destination": "10.0.4.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "17",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": [
+                  {
+                    "max": 12345,
+                    "min": 12345,
+                    "source_port_range": []
+                  }
+                ]
+              },
+              {
+                "destination": "10.0.5.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "1",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": []
+              },
+              {
+                "destination": "10.0.6.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [
+                  {
+                    "code": 1,
+                    "type": 8
+                  }
+                ],
+                "protocol": "1",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": []
+              },
+              {
+                "destination": "10.0.7.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [
+                  {
+                    "code": 8,
+                    "type": 3
+                  }
+                ],
+                "protocol": "1",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": []
+              },
+              {
+                "destination": "10.0.99.2/32",
+                "destination_type": "CIDR_BLOCK",
+                "icmp_options": [],
+                "protocol": "all",
+                "stateless": true,
+                "tcp_options": [],
+                "udp_options": []
+              }
+            ],
+            "ingress_security_rules": [],
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_security_list.testing-2",
+          "mode": "managed",
+          "type": "oci_core_security_list",
+          "name": "testing-2",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "testing #2",
+            "egress_security_rules": [],
+            "ingress_security_rules": [
+              {
+                "icmp_options": [],
+                "protocol": "17",
+                "source": "10.0.0.1/32",
+                "source_type": "CIDR_BLOCK",
+                "stateless": false,
+                "udp_options": [
+                  {
+                    "max": 123,
+                    "min": 123,
+                    "source_port_range": []
+                  }
+                ],
+                "tcp_options": []
+              },
+              {
+                "icmp_options": [],
+                "protocol": "6",
+                "source": "10.0.0.1/32",
+                "source_type": "CIDR_BLOCK",
+                "stateless": false,
+                "tcp_options": [
+                  {
+                    "max": 443,
+                    "min": 443,
+                    "source_port_range": []
+                  }
+                ],
+                "udp_options": []
+              },
+              {
+                "icmp_options": [],
+                "protocol": "all",
+                "source": "10.1.2.3/32",
+                "source_type": "CIDR_BLOCK",
+                "stateless": false,
+                "tcp_options": [],
+                "udp_options": []
+              }
+            ],
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_subnet.test_subnet_1",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "test_subnet_1",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "availability_domain": "1234:PHX-AD-1",
+            "cidr_block": "192.168.0.0/29",
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "test_subnet_1",
+            "dns_label": "testsubnet1",
+            "prohibit_public_ip_on_vnic": false,
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_subnet.test_subnet_2",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "test_subnet_2",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "availability_domain": "1234:PHX-AD-1",
+            "cidr_block": "192.168.0.16/28",
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "test_subnet_2",
+            "dns_label": "testsubnet2",
+            "prohibit_public_ip_on_vnic": false,
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_subnet.test_subnet_3",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "test_subnet_3",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "availability_domain": "1234:PHX-AD-1",
+            "cidr_block": "192.168.1.0/24",
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "test_subnet_3",
+            "dns_label": "testsubnet3",
+            "prohibit_public_ip_on_vnic": false,
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        },
+        {
+          "address": "oci_core_subnet.testing_2",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "testing_2",
+          "provider_name": "oci.phx",
+          "schema_version": 0,
+          "values": {
+            "availability_domain": "1234:PHX-AD-2",
+            "cidr_block": "192.168.0.8/29",
+            "compartment_id": "ocid1.compartment.oc1..abc123",
+            "display_name": "testing_2",
+            "dns_label": "testing2",
+            "prohibit_public_ip_on_vnic": true,
+            "timeouts": null,
+            "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+          }
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "oci_core_dhcp_options.test_dhcp",
+      "mode": "managed",
+      "type": "oci_core_dhcp_options",
+      "name": "test_dhcp",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "test_dhcp",
+          "options": [
+            {
+              "custom_dns_servers": [],
+              "server_type": "VcnLocalPlusInternet",
+              "type": "DomainNameServer"
+            },
+            {
+              "custom_dns_servers": [],
+              "search_domain_names": [
+                "test.oraclecloud.local"
+              ],
+              "type": "SearchDomain"
+            }
+          ],
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "freeform_tags": true,
+          "id": true,
+          "options": [
+            {
+              "custom_dns_servers": [],
+              "search_domain_names": true
+            },
+            {
+              "custom_dns_servers": [],
+              "search_domain_names": [
+                false
+              ],
+              "server_type": true
+            }
+          ],
+          "state": true,
+          "time_created": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_instance.Test123",
+      "mode": "managed",
+      "type": "oci_core_instance",
+      "name": "Test123",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "availability_domain": "1234:US-ASHBURN-AD-1",
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "create_vnic_details": [
+            {
+              "assign_public_ip": "false",
+              "nsg_ids": null,
+              "skip_source_dest_check": false
+            }
+          ],
+          "display_name": "Test123",
+          "extended_metadata": null,
+          "hostname_label": "test123",
+          "metadata": {
+            "ssh_authorized_keys": "ssh-rsa abc123"
+          },
+          "preserve_boot_volume": null,
+          "shape": "VM.Standard1.1",
+          "source_details": [
+            {
+              "source_id": "ocid1.image.oc1.eu-frankfurt-1.abc123",
+              "source_type": "image"
+            }
+          ],
+          "timeouts": null
+        },
+        "after_unknown": {
+          "agent_config": true,
+          "boot_volume_id": true,
+          "create_vnic_details": [
+            {
+              "defined_tags": true,
+              "display_name": true,
+              "freeform_tags": true,
+              "hostname_label": true,
+              "private_ip": true,
+              "subnet_id": true
+            }
+          ],
+          "dedicated_vm_host_id": true,
+          "defined_tags": true,
+          "fault_domain": true,
+          "freeform_tags": true,
+          "id": true,
+          "image": true,
+          "ipxe_script": true,
+          "is_pv_encryption_in_transit_enabled": true,
+          "launch_mode": true,
+          "launch_options": true,
+          "metadata": {},
+          "private_ip": true,
+          "public_ip": true,
+          "region": true,
+          "source_details": [
+            {
+              "boot_volume_size_in_gbs": true,
+              "kms_key_id": true
+            }
+          ],
+          "state": true,
+          "subnet_id": true,
+          "system_tags": true,
+          "time_created": true,
+          "time_maintenance_reboot_due": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_instance.WebServer1",
+      "mode": "managed",
+      "type": "oci_core_instance",
+      "name": "WebServer1",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "availability_domain": "1234:US-ASHBURN-AD-2",
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "create_vnic_details": [
+            {
+              "assign_public_ip": "true",
+              "nsg_ids": null,
+              "skip_source_dest_check": false
+            }
+          ],
+          "display_name": "WebServer1",
+          "extended_metadata": null,
+          "hostname_label": "webserver1",
+          "metadata": {
+            "ssh_authorized_keys": "ssh-rsa abc123"
+          },
+          "preserve_boot_volume": null,
+          "shape": "VM.Standard1.1",
+          "source_details": [
+            {
+              "source_id": "ocid1.image.oc1.eu-frankfurt-1.abc123",
+              "source_type": "image"
+            }
+          ],
+          "timeouts": null
+        },
+        "after_unknown": {
+          "agent_config": true,
+          "boot_volume_id": true,
+          "create_vnic_details": [
+            {
+              "defined_tags": true,
+              "display_name": true,
+              "freeform_tags": true,
+              "hostname_label": true,
+              "private_ip": true,
+              "subnet_id": true
+            }
+          ],
+          "dedicated_vm_host_id": true,
+          "defined_tags": true,
+          "fault_domain": true,
+          "freeform_tags": true,
+          "id": true,
+          "image": true,
+          "ipxe_script": true,
+          "is_pv_encryption_in_transit_enabled": true,
+          "launch_mode": true,
+          "launch_options": true,
+          "metadata": {},
+          "private_ip": true,
+          "public_ip": true,
+          "region": true,
+          "source_details": [
+            {
+              "boot_volume_size_in_gbs": true,
+              "kms_key_id": true
+            }
+          ],
+          "state": true,
+          "subnet_id": true,
+          "system_tags": true,
+          "time_created": true,
+          "time_maintenance_reboot_due": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_route_table.Test_Route_1",
+      "mode": "managed",
+      "type": "oci_core_route_table",
+      "name": "Test_Route_1",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "Test_Route_1",
+          "route_rules": [
+            {
+              "destination": "0.0.0.0/0",
+              "destination_type": "CIDR_BLOCK",
+              "network_entity_id": "ocid1.servicegateway.oc1.phx.abc123"
+            },
+            {
+              "destination": "1.1.1.0/24",
+              "destination_type": "CIDR_BLOCK",
+              "network_entity_id": "ocid1.servicegateway.oc1.phx.abc123"
+            },
+            {
+              "destination": "10.1.1.0/24",
+              "destination_type": "CIDR_BLOCK",
+              "network_entity_id": "ocid1.natgateway.oc1.phx.abc123"
+            },
+            {
+              "destination": "192.168.0.0/16",
+              "destination_type": "CIDR_BLOCK",
+              "network_entity_id": "ocid1.natgateway.oc1.phx.abc123"
+            }
+          ],
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "freeform_tags": true,
+          "id": true,
+          "route_rules": [
+            {
+              "cidr_block": true,
+              "description": true
+            },
+            {
+              "cidr_block": true,
+              "description": true
+            },
+            {
+              "cidr_block": true,
+              "description": true
+            },
+            {
+              "cidr_block": true,
+              "description": true
+            }
+          ],
+          "state": true,
+          "time_created": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_security_list.test_acl",
+      "mode": "managed",
+      "type": "oci_core_security_list",
+      "name": "test_acl",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "test_acl",
+          "egress_security_rules": [
+            {
+              "destination": "10.0.0.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "17",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "destination": "10.0.1.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "17",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "max": 123,
+                  "min": 123,
+                  "source_port_range": []
+                }
+              ]
+            },
+            {
+              "destination": "10.0.2.1/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "17",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "max": null,
+                  "min": null,
+                  "source_port_range": [
+                    {
+                      "max": 123,
+                      "min": 123
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "destination": "10.0.3.1/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "17",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "max": 123,
+                  "min": 123,
+                  "source_port_range": [
+                    {
+                      "max": 123,
+                      "min": 123
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "destination": "10.0.4.1/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "17",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "destination": "10.0.4.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "17",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "max": 12345,
+                  "min": 12345,
+                  "source_port_range": []
+                }
+              ]
+            },
+            {
+              "destination": "10.0.5.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "1",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "destination": "10.0.6.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [
+                {
+                  "code": 1,
+                  "type": 8
+                }
+              ],
+              "protocol": "1",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "destination": "10.0.7.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [
+                {
+                  "code": 8,
+                  "type": 3
+                }
+              ],
+              "protocol": "1",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "destination": "10.0.99.2/32",
+              "destination_type": "CIDR_BLOCK",
+              "icmp_options": [],
+              "protocol": "all",
+              "stateless": true,
+              "tcp_options": [],
+              "udp_options": []
+            }
+          ],
+          "ingress_security_rules": [],
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "egress_security_rules": [
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "source_port_range": []
+                }
+              ]
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "source_port_range": [
+                    {}
+                  ]
+                }
+              ]
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "source_port_range": [
+                    {}
+                  ]
+                }
+              ]
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": [
+                {
+                  "source_port_range": []
+                }
+              ]
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [
+                {}
+              ],
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [
+                {}
+              ],
+              "tcp_options": [],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": []
+            }
+          ],
+          "freeform_tags": true,
+          "id": true,
+          "ingress_security_rules": [],
+          "state": true,
+          "time_created": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_security_list.testing-2",
+      "mode": "managed",
+      "type": "oci_core_security_list",
+      "name": "testing-2",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "testing #2",
+          "egress_security_rules": [],
+          "ingress_security_rules": [
+            {
+              "icmp_options": [],
+              "protocol": "17",
+              "source": "10.0.0.1/32",
+              "source_type": "CIDR_BLOCK",
+              "stateless": false,
+              "udp_options": [
+                {
+                  "max": 123,
+                  "min": 123,
+                  "source_port_range": []
+                }
+              ],
+              "tcp_options": []
+            },
+            {
+              "icmp_options": [],
+              "protocol": "6",
+              "source": "10.0.0.1/32",
+              "source_type": "CIDR_BLOCK",
+              "stateless": false,
+              "tcp_options": [
+                {
+                  "max": 443,
+                  "min": 443,
+                  "source_port_range": []
+                }
+              ],
+              "udp_options": []
+            },
+            {
+              "icmp_options": [],
+              "protocol": "all",
+              "source": "10.1.2.3/32",
+              "source_type": "CIDR_BLOCK",
+              "stateless": false,
+              "tcp_options": [],
+              "udp_options": []
+            }
+          ],
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "egress_security_rules": [],
+          "freeform_tags": true,
+          "id": true,
+          "ingress_security_rules": [
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [
+                {
+                  "source_port_range": []
+                }
+              ],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [
+                {
+                  "source_port_range": []
+                }
+              ],
+              "udp_options": []
+            },
+            {
+              "description": true,
+              "icmp_options": [],
+              "tcp_options": [],
+              "udp_options": []
+            }
+          ],
+          "state": true,
+          "time_created": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_subnet.test_subnet_1",
+      "mode": "managed",
+      "type": "oci_core_subnet",
+      "name": "test_subnet_1",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "availability_domain": "1234:PHX-AD-1",
+          "cidr_block": "192.168.0.0/29",
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "test_subnet_1",
+          "dns_label": "testsubnet1",
+          "prohibit_public_ip_on_vnic": false,
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "dhcp_options_id": true,
+          "freeform_tags": true,
+          "id": true,
+          "ipv6cidr_block": true,
+          "ipv6public_cidr_block": true,
+          "ipv6virtual_router_ip": true,
+          "route_table_id": true,
+          "security_list_ids": true,
+          "state": true,
+          "subnet_domain_name": true,
+          "time_created": true,
+          "virtual_router_ip": true,
+          "virtual_router_mac": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_subnet.test_subnet_2",
+      "mode": "managed",
+      "type": "oci_core_subnet",
+      "name": "test_subnet_2",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "availability_domain": "1234:PHX-AD-1",
+          "cidr_block": "192.168.0.16/28",
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "test_subnet_2",
+          "dns_label": "testsubnet2",
+          "prohibit_public_ip_on_vnic": false,
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "dhcp_options_id": true,
+          "freeform_tags": true,
+          "id": true,
+          "ipv6cidr_block": true,
+          "ipv6public_cidr_block": true,
+          "ipv6virtual_router_ip": true,
+          "route_table_id": true,
+          "security_list_ids": true,
+          "state": true,
+          "subnet_domain_name": true,
+          "time_created": true,
+          "virtual_router_ip": true,
+          "virtual_router_mac": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_subnet.test_subnet_3",
+      "mode": "managed",
+      "type": "oci_core_subnet",
+      "name": "test_subnet_3",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "availability_domain": "1234:PHX-AD-1",
+          "cidr_block": "192.168.1.0/24",
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "test_subnet_3",
+          "dns_label": "testsubnet3",
+          "prohibit_public_ip_on_vnic": false,
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "dhcp_options_id": true,
+          "freeform_tags": true,
+          "id": true,
+          "ipv6cidr_block": true,
+          "ipv6public_cidr_block": true,
+          "ipv6virtual_router_ip": true,
+          "route_table_id": true,
+          "security_list_ids": true,
+          "state": true,
+          "subnet_domain_name": true,
+          "time_created": true,
+          "virtual_router_ip": true,
+          "virtual_router_mac": true
+        }
+      }
+    },
+    {
+      "address": "oci_core_subnet.testing_2",
+      "mode": "managed",
+      "type": "oci_core_subnet",
+      "name": "testing_2",
+      "provider_name": "oci.phx",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "availability_domain": "1234:PHX-AD-2",
+          "cidr_block": "192.168.0.8/29",
+          "compartment_id": "ocid1.compartment.oc1..abc123",
+          "display_name": "testing_2",
+          "dns_label": "testing2",
+          "prohibit_public_ip_on_vnic": true,
+          "timeouts": null,
+          "vcn_id": "ocid1.vcn.oc1.phx.abc123"
+        },
+        "after_unknown": {
+          "defined_tags": true,
+          "dhcp_options_id": true,
+          "freeform_tags": true,
+          "id": true,
+          "ipv6cidr_block": true,
+          "ipv6public_cidr_block": true,
+          "ipv6virtual_router_ip": true,
+          "route_table_id": true,
+          "security_list_ids": true,
+          "state": true,
+          "subnet_domain_name": true,
+          "time_created": true,
+          "virtual_router_ip": true,
+          "virtual_router_mac": true
+        }
+      }
+    }
+  ],
+  "prior_state": {
+    "format_version": "0.1",
+    "terraform_version": "0.12.8",
+    "values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "data.oci_identity_availability_domains.IAD-ADs",
+            "mode": "data",
+            "type": "oci_identity_availability_domains",
+            "name": "IAD-ADs",
+            "provider_name": "oci.iad",
+            "schema_version": 0,
+            "values": {
+              "availability_domains": [
+                {
+                  "compartment_id": "ocid1.tenancy.oc1..abc123",
+                  "id": "ocid1.availabilitydomain.oc1..ash123",
+                  "name": "1234:US-ASHBURN-AD-1"
+                },
+                {
+                  "compartment_id": "ocid1.tenancy.oc1..abc123",
+                  "id": "ocid1.availabilitydomain.oc1..ash456",
+                  "name": "1234:US-ASHBURN-AD-2"
+                },
+                {
+                  "compartment_id": "ocid1.tenancy.oc1..abc123",
+                  "id": "ocid1.availabilitydomain.oc1..ash789",
+                  "name": "1234:US-ASHBURN-AD-3"
+                }
+              ],
+              "compartment_id": "ocid1.tenancy.oc1..abc123",
+              "filter": null,
+              "id": "2020-02-26 18:37:30.267127 +0000 UTC"
+            }
+          },
+          {
+            "address": "data.oci_identity_availability_domains.PHX-ADs",
+            "mode": "data",
+            "type": "oci_identity_availability_domains",
+            "name": "PHX-ADs",
+            "provider_name": "oci.phx",
+            "schema_version": 0,
+            "values": {
+              "availability_domains": [
+                {
+                  "compartment_id": "ocid1.tenancy.oc1..abc123",
+                  "id": "ocid1.availabilitydomain.oc1..pho123",
+                  "name": "1234:PHX-AD-1"
+                },
+                {
+                  "compartment_id": "ocid1.tenancy.oc1..abc123",
+                  "id": "ocid1.availabilitydomain.oc1..pho456",
+                  "name": "1234:PHX-AD-2"
+                },
+                {
+                  "compartment_id": "ocid1.tenancy.oc1..abc123",
+                  "id": "ocid1.availabilitydomain.oc1..pho789",
+                  "name": "1234:PHX-AD-3"
+                }
+              ],
+              "compartment_id": "ocid1.tenancy.oc1..abc123",
+              "filter": null,
+              "id": "2020-02-26 18:37:31.584134 +0000 UTC"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "oci": {
+        "name": "oci",
+        "version_constraint": ">= 3.0.0",
+        "expressions": {
+          "fingerprint": {
+            "references": [
+              "var.fingerprint"
+            ]
+          },
+          "private_key_path": {
+            "references": [
+              "var.private_key_path"
+            ]
+          },
+          "region": {
+            "constant_value": "us-phoenix-1"
+          },
+          "tenancy_ocid": {
+            "references": [
+              "var.tenancy_ocid"
+            ]
+          },
+          "user_ocid": {
+            "references": [
+              "var.user_ocid"
+            ]
+          }
+        }
+      },
+      "oci.phx": {
+        "name": "oci",
+        "alias": "phx",
+        "version_constraint": ">= 3.0.0",
+        "expressions": {
+          "fingerprint": {
+            "references": [
+              "var.fingerprint"
+            ]
+          },
+          "private_key_path": {
+            "references": [
+              "var.private_key_path"
+            ]
+          },
+          "region": {
+            "constant_value": "us-phoenix-1"
+          },
+          "tenancy_ocid": {
+            "references": [
+              "var.tenancy_ocid"
+            ]
+          },
+          "user_ocid": {
+            "references": [
+              "var.user_ocid"
+            ]
+          }
+        }
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "oci_core_dhcp_options.test_dhcp",
+          "mode": "managed",
+          "type": "oci_core_dhcp_options",
+          "name": "test_dhcp",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "display_name": {
+              "constant_value": "test_dhcp"
+            },
+            "options": [
+              {
+                "server_type": {
+                  "constant_value": "VcnLocalPlusInternet"
+                },
+                "type": {
+                  "constant_value": "DomainNameServer"
+                }
+              },
+              {
+                "search_domain_names": {
+                  "constant_value": [
+                    "test.oraclecloud.local"
+                  ]
+                },
+                "type": {
+                  "constant_value": "SearchDomain"
+                }
+              }
+            ],
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_instance.Test123",
+          "mode": "managed",
+          "type": "oci_core_instance",
+          "name": "Test123",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "availability_domain": {
+              "references": [
+                "data.oci_identity_availability_domains.IAD-ADs"
+              ]
+            },
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "create_vnic_details": [
+              {
+                "assign_public_ip": {
+                  "constant_value": "false"
+                },
+                "skip_source_dest_check": {
+                  "constant_value": "false"
+                },
+                "subnet_id": {
+                  "references": [
+                    "oci_core_subnet.test_subnet_2"
+                  ]
+                }
+              }
+            ],
+            "display_name": {
+              "constant_value": "Test123"
+            },
+            "hostname_label": {
+              "constant_value": "test123"
+            },
+            "metadata": {},
+            "shape": {
+              "constant_value": "VM.Standard1.1"
+            },
+            "source_details": [
+              {
+                "source_id": {
+                  "constant_value": "ocid1.image.oc1.eu-frankfurt-1.abc123"
+                },
+                "source_type": {
+                  "constant_value": "image"
+                }
+              }
+            ],
+            "subnet_id": {
+              "references": [
+                "oci_core_subnet.test_subnet_2"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_instance.WebServer1",
+          "mode": "managed",
+          "type": "oci_core_instance",
+          "name": "WebServer1",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "availability_domain": {
+              "references": [
+                "data.oci_identity_availability_domains.IAD-ADs"
+              ]
+            },
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "create_vnic_details": [
+              {
+                "assign_public_ip": {
+                  "constant_value": "true"
+                },
+                "skip_source_dest_check": {
+                  "constant_value": "false"
+                },
+                "subnet_id": {
+                  "references": [
+                    "oci_core_subnet.testing_2"
+                  ]
+                }
+              }
+            ],
+            "display_name": {
+              "constant_value": "WebServer1"
+            },
+            "hostname_label": {
+              "constant_value": "webserver1"
+            },
+            "metadata": {},
+            "shape": {
+              "constant_value": "VM.Standard1.1"
+            },
+            "source_details": [
+              {
+                "source_id": {
+                  "constant_value": "ocid1.image.oc1.eu-frankfurt-1.abc123"
+                },
+                "source_type": {
+                  "constant_value": "image"
+                }
+              }
+            ],
+            "subnet_id": {
+              "references": [
+                "oci_core_subnet.testing_2"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_route_table.Test_Route_1",
+          "mode": "managed",
+          "type": "oci_core_route_table",
+          "name": "Test_Route_1",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "display_name": {
+              "constant_value": "Test_Route_1"
+            },
+            "route_rules": [
+              {
+                "destination": {
+                  "constant_value": "1.1.1.0/24"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "network_entity_id": {
+                  "references": [
+                    "var.svcgw_id"
+                  ]
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "10.1.1.0/24"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "network_entity_id": {
+                  "references": [
+                    "var.natgw_id"
+                  ]
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "192.168.0.0/16"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "network_entity_id": {
+                  "references": [
+                    "var.natgw_id"
+                  ]
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "0.0.0.0/0"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "network_entity_id": {
+                  "references": [
+                    "var.svcgw_id"
+                  ]
+                }
+              }
+            ],
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_security_list.test_acl",
+          "mode": "managed",
+          "type": "oci_core_security_list",
+          "name": "test_acl",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "display_name": {
+              "constant_value": "test_acl"
+            },
+            "egress_security_rules": [
+              {
+                "destination": {
+                  "constant_value": "10.0.0.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "stateless": {
+                  "constant_value": true
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.99.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "all"
+                },
+                "stateless": {
+                  "constant_value": true
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.1.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "stateless": {
+                  "constant_value": true
+                },
+                "udp_options": [
+                  {
+                    "max": {
+                      "constant_value": "123"
+                    },
+                    "min": {
+                      "constant_value": "123"
+                    }
+                  }
+                ]
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.2.1/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "stateless": {
+                  "constant_value": true
+                },
+                "udp_options": [
+                  {
+                    "source_port_range": [
+                      {
+                        "max": {
+                          "constant_value": "123"
+                        },
+                        "min": {
+                          "constant_value": "123"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.3.1/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "stateless": {
+                  "constant_value": true
+                },
+                "udp_options": [
+                  {
+                    "max": {
+                      "constant_value": "123"
+                    },
+                    "min": {
+                      "constant_value": "123"
+                    },
+                    "source_port_range": [
+                      {
+                        "max": {
+                          "constant_value": "123"
+                        },
+                        "min": {
+                          "constant_value": "123"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.4.1/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "stateless": {
+                  "constant_value": true
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.4.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "stateless": {
+                  "constant_value": true
+                },
+                "udp_options": [
+                  {
+                    "max": {
+                      "constant_value": "12345"
+                    },
+                    "min": {
+                      "constant_value": "12345"
+                    }
+                  }
+                ]
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.5.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "protocol": {
+                  "constant_value": "1"
+                },
+                "stateless": {
+                  "constant_value": true
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.6.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "icmp_options": [
+                  {
+                    "type": {
+                      "constant_value": "8"
+                    }
+                  }
+                ],
+                "protocol": {
+                  "constant_value": "1"
+                },
+                "stateless": {
+                  "constant_value": true
+                }
+              },
+              {
+                "destination": {
+                  "constant_value": "10.0.7.2/32"
+                },
+                "destination_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "icmp_options": [
+                  {
+                    "code": {
+                      "constant_value": "8"
+                    },
+                    "type": {
+                      "constant_value": "3"
+                    }
+                  }
+                ],
+                "protocol": {
+                  "constant_value": "1"
+                },
+                "stateless": {
+                  "constant_value": true
+                }
+              }
+            ],
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_security_list.testing-2",
+          "mode": "managed",
+          "type": "oci_core_security_list",
+          "name": "testing-2",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "display_name": {
+              "constant_value": "testing #2"
+            },
+            "ingress_security_rules": [
+              {
+                "protocol": {
+                  "constant_value": "6"
+                },
+                "source": {
+                  "constant_value": "10.0.0.1/32"
+                },
+                "source_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "stateless": {
+                  "constant_value": false
+                },
+                "tcp_options": [
+                  {
+                    "max": {
+                      "constant_value": "443"
+                    },
+                    "min": {
+                      "constant_value": "443"
+                    }
+                  }
+                ]
+              },
+              {
+                "protocol": {
+                  "constant_value": "17"
+                },
+                "source": {
+                  "constant_value": "10.0.0.1/32"
+                },
+                "source_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "stateless": {
+                  "constant_value": false
+                },
+                "udp_options": [
+                  {
+                    "max": {
+                      "constant_value": "123"
+                    },
+                    "min": {
+                      "constant_value": "123"
+                    }
+                  }
+                ]
+              },
+              {
+                "protocol": {
+                  "constant_value": "all"
+                },
+                "source": {
+                  "constant_value": "10.1.2.3/32"
+                },
+                "source_type": {
+                  "constant_value": "CIDR_BLOCK"
+                },
+                "stateless": {
+                  "constant_value": false
+                }
+              }
+            ],
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_subnet.test_subnet_1",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "test_subnet_1",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "availability_domain": {
+              "references": [
+                "data.oci_identity_availability_domains.PHX-ADs"
+              ]
+            },
+            "cidr_block": {
+              "constant_value": "192.168.0.0/29"
+            },
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "dhcp_options_id": {
+              "references": [
+                "oci_core_dhcp_options.test_dhcp"
+              ]
+            },
+            "display_name": {
+              "constant_value": "test_subnet_1"
+            },
+            "dns_label": {
+              "constant_value": "testsubnet1"
+            },
+            "prohibit_public_ip_on_vnic": {
+              "constant_value": "false"
+            },
+            "route_table_id": {
+              "references": [
+                "oci_core_route_table.Test_Route_1"
+              ]
+            },
+            "security_list_ids": {
+              "references": [
+                "oci_core_security_list.test_acl",
+                "oci_core_security_list.testing-2"
+              ]
+            },
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_subnet.test_subnet_2",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "test_subnet_2",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "availability_domain": {
+              "references": [
+                "data.oci_identity_availability_domains.PHX-ADs"
+              ]
+            },
+            "cidr_block": {
+              "constant_value": "192.168.0.16/28"
+            },
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "dhcp_options_id": {
+              "references": [
+                "oci_core_dhcp_options.test_dhcp"
+              ]
+            },
+            "display_name": {
+              "constant_value": "test_subnet_2"
+            },
+            "dns_label": {
+              "constant_value": "testsubnet2"
+            },
+            "prohibit_public_ip_on_vnic": {
+              "constant_value": "false"
+            },
+            "route_table_id": {
+              "references": [
+                "oci_core_route_table.Test_Route_1"
+              ]
+            },
+            "security_list_ids": {
+              "references": [
+                "oci_core_security_list.test_acl",
+                "oci_core_security_list.testing-2"
+              ]
+            },
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_subnet.test_subnet_3",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "test_subnet_3",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "availability_domain": {
+              "references": [
+                "data.oci_identity_availability_domains.PHX-ADs"
+              ]
+            },
+            "cidr_block": {
+              "constant_value": "192.168.1.0/24"
+            },
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "dhcp_options_id": {
+              "references": [
+                "oci_core_dhcp_options.test_dhcp"
+              ]
+            },
+            "display_name": {
+              "constant_value": "test_subnet_3"
+            },
+            "dns_label": {
+              "constant_value": "testsubnet3"
+            },
+            "prohibit_public_ip_on_vnic": {
+              "constant_value": "false"
+            },
+            "route_table_id": {
+              "references": [
+                "oci_core_route_table.Test_Route_1"
+              ]
+            },
+            "security_list_ids": {
+              "references": [
+                "oci_core_security_list.test_acl",
+                "oci_core_security_list.testing-2"
+              ]
+            },
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "oci_core_subnet.testing_2",
+          "mode": "managed",
+          "type": "oci_core_subnet",
+          "name": "testing_2",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "availability_domain": {
+              "references": [
+                "data.oci_identity_availability_domains.PHX-ADs"
+              ]
+            },
+            "cidr_block": {
+              "constant_value": "192.168.0.8/29"
+            },
+            "compartment_id": {
+              "references": [
+                "var.compartment_id"
+              ]
+            },
+            "dhcp_options_id": {
+              "references": [
+                "oci_core_dhcp_options.test_dhcp"
+              ]
+            },
+            "display_name": {
+              "constant_value": "testing_2"
+            },
+            "dns_label": {
+              "constant_value": "testing2"
+            },
+            "prohibit_public_ip_on_vnic": {
+              "constant_value": "true"
+            },
+            "route_table_id": {
+              "references": [
+                "oci_core_route_table.Test_Route_1"
+              ]
+            },
+            "security_list_ids": {
+              "references": [
+                "oci_core_security_list.test_acl"
+              ]
+            },
+            "vcn_id": {
+              "references": [
+                "var.vcn_id"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.oci_identity_availability_domains.FRA-ADs",
+          "mode": "data",
+          "type": "oci_identity_availability_domains",
+          "name": "FRA-ADs",
+          "provider_config_key": "oci.fra",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.tenancy_ocid"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.oci_identity_availability_domains.IAD-ADs",
+          "mode": "data",
+          "type": "oci_identity_availability_domains",
+          "name": "IAD-ADs",
+          "provider_config_key": "oci.iad",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.tenancy_ocid"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.oci_identity_availability_domains.LHR-ADs",
+          "mode": "data",
+          "type": "oci_identity_availability_domains",
+          "name": "LHR-ADs",
+          "provider_config_key": "oci.lhr",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.tenancy_ocid"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.oci_identity_availability_domains.PHX-ADs",
+          "mode": "data",
+          "type": "oci_identity_availability_domains",
+          "name": "PHX-ADs",
+          "provider_config_key": "oci.phx",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.tenancy_ocid"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.oci_identity_availability_domains.YYZ-ADs",
+          "mode": "data",
+          "type": "oci_identity_availability_domains",
+          "name": "YYZ-ADs",
+          "provider_config_key": "oci.yyz",
+          "expressions": {
+            "compartment_id": {
+              "references": [
+                "var.tenancy_ocid"
+              ]
+            }
+          },
+          "schema_version": 0
+        }
+      ],
+      "variables": {
+        "compartment_id": {},
+        "fingerprint": {},
+        "igw_id": {},
+        "lpg_id": {},
+        "natgw_id": {},
+        "private_key_path": {},
+        "root_compartment_ocid": {},
+        "ssh_public_key": {},
+        "svcgw_id": {},
+        "tenancy_ocid": {},
+        "user_ocid": {},
+        "vcn_id": {}
+      }
+    }
+  }
+}
