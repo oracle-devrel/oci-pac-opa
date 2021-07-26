@@ -1,0 +1,16 @@
+{
+  "availabilityDomain" : "crmS:PHX-AD-1",
+  "cidrBlock" : "192.168.1.0/24",
+  "compartmentId" : "ocid1.compartment.oc1..<unique_ID-1>",
+  "dhcpOptionsId" : "ocid1.dhcpoptions.oc1.phx.<unique_ID-1>",
+  "displayName": "Test Subnet",
+  "id" : "ocid1.subnet.oc1.phx.<unique_ID>",
+  "lifecycleState" : "AVAILABLE",
+  "prohibitPublicIpOnVnic": true,
+  "routeTableId" : "ocid1.routetable.oc1.phx.<unique_ID-1>",
+  "securityListIds" : [ "ocid1.securitylist.oc1.phx.<unique_ID-1>" ],
+  "timeCreated" : "2016-11-18T22:26:14.639Z",
+  "vcnId" : "ocid1.vcn.oc1.phx.<unique_ID-1>",
+  "virtualRouterIp" : "192.168.1.1",
+  "virtualRouterMac" : "00:00:00:00:00:01",
+}
